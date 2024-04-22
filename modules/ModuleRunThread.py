@@ -265,8 +265,8 @@ class MatchingThread(QtCore.QThread):
             # 开始匹配
             try:
                 match_start_time = time.time()
-                results = start_match.start_match_click(i, target_info, debug_status, start_time, end_time,
-                                                        now_time, loop_seconds, click_mod1, click_mod2, flag_mark)
+                results = start_match.match_click_multi_plat(i, target_info, debug_status, start_time, end_time,
+                                                             now_time, loop_seconds, click_mod1, click_mod2, flag_mark)
 
                 match_end_time = time.time()
                 run_status, match_status, stop_status, match_target_name, click_pos = results
@@ -363,9 +363,9 @@ class MatchingThread(QtCore.QThread):
 
                     if other_setting[2] is True and match_end_time - warming_time > 150:  # 如果上次警告提示到需要触发时不足150秒，不会触发等待
 
-                        # 根据配置文件中设置的概率来触发等待，随机性更强
+                        # 根据配置文件中设置的概率来触发等待，随机性更强 或者 每100次必须等待
                         roll_num = random.randint(0, 99)  # roll 0-99，触发几率在配置文件可设置
-                        if roll_num < float(other_setting[3]) * 100:
+                        if roll_num < float(other_setting[3]) * 100 or (success_times + 1) % 100 == 0:
                             print(f"<br>已成功匹配{success_times}次，为防止异常检测，在此期间请等待或手动操作！")
                             if other_setting[7]:
                                 HandleSet.play_sounds("ding")  # 播放提示音
@@ -375,19 +375,6 @@ class MatchingThread(QtCore.QThread):
                                 sleep(1)
 
                             # 记录警告提示的时间戳，避免出现1分钟内出现2次以上的等待
-                            warming_time = time.time()  # 记录当前时间
-
-                        # 匹配指定次数（100次）后，立即触发等待（写死每100次必须等待）
-                        elif (success_times + 1) % 100 == 0:
-                            print(f"<br>已成功匹配{success_times}次，为防止异常检测，在此期间请等待或手动操作！")
-                            if other_setting[7]:
-                                HandleSet.play_sounds("ding")  # 播放提示音
-                            roll_wait_sec = random.randint(int(other_setting[4][0]), int(other_setting[4][1]))
-                            for t in range(int(roll_wait_sec)):
-                                print(f"<br>为防止异常，[ {int(roll_wait_sec) - t} ] 秒后继续……")
-                                sleep(1)
-
-                            # 记录警告提示的时间戳，避免出现2分钟内出现2次以上的等待
                             warming_time = time.time()  # 记录当前时间
 
                     # 计算点击频率，超过一定频率容易被识别为异常，所以增加等待时间

@@ -7,3 +7,6 @@ opencv-python==4.5.4.60
 PyQt5==5.15.4
 PyAutoGUI==0.9.53
 pillow==9.3.0
+pynput~=1.7.6
+paddlehub~=2.4.0
+numpy~=1.26.4

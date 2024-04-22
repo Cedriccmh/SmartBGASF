@@ -9,9 +9,71 @@ from numpy import int32, float32
 
 from modules.ModuleGetConfig import ReadConfigFile
 from modules.ModuleImgProcess import ImgProcess
+import paddlehub as hub
+
 
 rc = ReadConfigFile()
 other_setting = rc.read_config_other_setting()
+
+
+class GetPosByOcrMatch:
+
+    def __init__(self, accuracy=0.6, adb_mode=False, adb_num=0):
+        super(GetPosByOcrMatch, self).__init__()
+        self.ocr = hub.Module(name="chinese_ocr_db_crnn_mobile", enable_mkldnn=True)
+        self.accuracy = accuracy
+
+    @staticmethod
+    def get_pos_by_ocr(screen_capture, target_texts, debug_status):
+        """
+        通过OCR文字识别匹配，可以识别文字，不受缩放、旋转的影响
+        :return: 返回坐标(x,y)
+        """
+        # print("正在匹配…")
+        screen_width = screen_capture.shape[1]
+        screen_high = screen_capture.shape[0]
+
+        pos = None
+        i = 0
+        for i in range(len(target_texts)):
+            pos = GetPosByOcrMatch.ocr_matching(screen_capture, target_texts[i], debug_status,i, use_gpu=False)
+            if pos is not None:
+                if debug_status:
+                    if other_setting[5]:
+                        draw_img = ImgProcess.draw_pos_in_img(screen_capture, pos, [screen_high / 10, screen_width / 10])
+                        ImgProcess.show_img(draw_img)
+                break
+        return pos, i
+
+    def ocr_matching(self, screen_capture, target_text, debug_status, i, use_gpu=False):
+        """
+        通过OCR文字识别匹配，准确度不高，但是可以识别文字，不受缩放、旋转的影响
+        :param screen_capture: 截图
+        :param target_text: 目标文字
+        :param debug_status: 调试模式
+        :param i: 第几次匹配
+        :param use_gpu: 是否使用GPU
+        :return: 返回坐标(x,y) 与opencv坐标系对应
+        """
+        imgs = [screen_capture, ]
+        results = self.ocr.recognize_text(
+            images=imgs,  # 图片数据，ndarray.shape 为 [H, W, C]，BGR格式；
+            use_gpu=use_gpu,  # 是否使用 GPU；若使用GPU，请先设置CUDA_VISIBLE_DEVICES环境变量
+            output_dir='ocr_result',  # 图片的保存路径，默认设为 ocr_result；
+            visualization=debug_status,  # 是否将识别结果保存为图片文件；
+            box_thresh=self.accuracy,  # 检测文本框置信度的阈值；
+            text_thresh=self.accuracy)  # 识别中文文本置信度的阈值；
+        data = results[0]['data']
+
+        found = [e for e in data if target_text in e['text']]
+        if debug_status:
+            print(f'目标：{target_text},  找到数量：{len(found)},'f"<br>第 [ {i+1} ] 个文本")
+        if found:
+            p1, _, p2, _ = found[0]['text_box_position']
+            (x1, y1), (x2, y2) = p1, p2
+            center = (int((x1 + x2) / 2), int((y1 + y2) / 2))
+            return center
+        return None
 
 
 class GetPosByTemplateMatch:

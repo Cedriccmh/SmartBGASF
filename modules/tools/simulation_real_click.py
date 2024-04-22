@@ -9,8 +9,8 @@
 """
 
 import random
-from ModuleClickModSet import ClickModSet
-from ModuleDoClick import DoClick
+from ..ModuleClickModSet import ClickModSet
+from ..ModuleDoClick import DoClick
 
 screen_size = [1152, 680]  # 窗口大小
 

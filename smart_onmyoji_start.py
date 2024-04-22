@@ -53,7 +53,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.times_mode = ui_info[17]
 
         # 控制台消息捕获并输出到运行日志
-        sys.stdout = EmitStr(text_writ=self.output_write)  # 输出结果重定向
+        sys.stdout = EmitStr(text_writ=self.output_write)  # 标准输出重定向
         sys.stderr = EmitStr(text_writ=self.output_write)  # 错误输出重定向
 
         # 继承重新设置GUI初始状态
@@ -375,6 +375,7 @@ if __name__ == '__main__':
         myWindow.setWindowTitle(now_tag)  # 设置窗口标题
         myWindow.show()
         sys.exit(app.exec_())
+
     else:
         windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)  # 调起UAC以管理员身份重新执行
         sys.exit(0)

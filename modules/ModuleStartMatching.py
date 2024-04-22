@@ -15,7 +15,7 @@ from win32gui import GetWindowText
 from modules.ModuleClickModSet import ClickModSet
 from modules.ModuleDoClick import DoClick
 from modules.ModuleGetConfig import ReadConfigFile
-from modules.ModuleGetPos import GetPosByTemplateMatch, GetPosBySiftMatch
+from modules.ModuleGetPos import GetPosByTemplateMatch, GetPosBySiftMatch, GetPosByOcrMatch
 from modules.ModuleGetScreenCapture import GetScreenCapture
 from modules.ModuleGetTargetInfo import GetTargetPicInfo
 from modules.ModuleHandleSet import HandleSet
@@ -76,16 +76,16 @@ class StartMatch:
             else:
                 print("<br>连接失败！"
                       "<br>"
-                      f"<br>若使用模拟器或局域网连接安卓手机，请修改config配置："
-                      f"<br>adb_wifi_status = True"
-                      f"<br>adb_wifi_ip = 'ip及端口号'"
-                      f"<br>局域网使用，请先用USB连接安卓手机，打开调试模式！"
-                      f"<br>以下是各个模拟器默认端口号，但建议使用windows程序模式，也同时兼容以下几种模拟器："
-                      f"<br>MuMu模拟器：127.0.0.1:7555"
-                      f"<br>夜神模拟器：127.0.0.1:62001"
-                      f"<br>逍遥模拟器：127.0.0.1:21503"
-                      f"<br>腾讯手游助手：127.0.0.1:6555"
-                      f"<br>雷电模拟器：无需配置config文件"
+                      "<br>若使用模拟器或局域网连接安卓手机，请修改config配置："
+                      "<br>adb_wifi_status = True"
+                      "<br>adb_wifi_ip = 'ip及端口号'"
+                      "<br>局域网使用，请先用USB连接安卓手机，打开调试模式！"
+                      "<br>以下是各个模拟器默认端口号，但建议使用windows程序模式，也同时兼容以下几种模拟器："
+                      "<br>MuMu模拟器：127.0.0.1:7555"
+                      "<br>夜神模拟器：127.0.0.1:62001"
+                      "<br>逍遥模拟器：127.0.0.1:21503"
+                      "<br>腾讯手游助手：127.0.0.1:6555"
+                      "<br>雷电模拟器：无需配置config文件"
                       "<br>"
                       "<br>--------------------------------------------")
 
@@ -146,8 +146,8 @@ class StartMatch:
 
         return target_info
 
-    def matching(self, connect_mod, handle_num, scr_and_click_method, screen_method, debug_status, match_method,
-                 compress_val, target_info, click_mod1, click_mod2, run_status, match_status, stop_status, flag_mark):
+    def match_click(self, connect_mod, handle_num, scr_and_click_method, screen_method, debug_status, match_method,
+                    compress_val, target_info, click_mod1, click_mod2, run_status, match_status, stop_status, flag_mark):
         """
         核心代码~
         :param connect_mod: 运行方式，windows或安卓
@@ -201,6 +201,23 @@ class StartMatch:
         target_img_tm = target_img
         click_status = False
         click_pos = []
+
+        # Ocr识别方法
+        if match_method == 'Ocr识别':
+            if compress_val != 1:
+                # test
+                screen_img = ImgProcess.img_compress(screen_img, compress_val)
+                if debug_status and compress_val != 1:
+                    if self.other_setting[5]:
+                        ImgProcess.show_img(screen_img)
+                # compress target_img
+                target_img_tm = []
+                for k in range(len(target_img)):
+                    target_img_tm.append(ImgProcess.img_compress(target_img[k], compress_val))
+
+            # 开始匹配
+            get_pos = GetPosByOcrMatch()
+            pos, target_num = get_pos.get_pos_by_ocr(screen_img, target_img_tm, debug_status)
 
         # 模板匹配方法
         if match_method == '模板匹配':
@@ -361,8 +378,8 @@ class StartMatch:
 
         return run_status, match_status, stop_status, target_img_name[target_num], click_pos
 
-    def start_match_click(self, i, target_info, debug_status, start_time, end_time, now_time, loop_seconds, click_mod1,
-                          click_mod2, flag_mark):
+    def match_click_multi_plat(self, i, target_info, debug_status, start_time, end_time, now_time, loop_seconds, click_mod1,
+                               click_mod2, flag_mark):
         """不同场景下的匹配方式"""
         match_status = False
         run_status = True
@@ -397,9 +414,9 @@ class StartMatch:
                 handle_width = handle_set.get_handle_pos[2] - handle_set.get_handle_pos[0]  # 右x - 左x 计算宽度
                 handle_height = handle_set.get_handle_pos[3] - handle_set.get_handle_pos[1]  # 下y - 上y 计算高度
                 screen_method = GetScreenCapture(handle_num, handle_width, handle_height)
-                results = self.matching(connect_mod, handle_num, scr_and_click_method, screen_method, debug_status,
-                                        match_method, compress_val, target_info, click_mod1, click_mod2, run_status,
-                                        match_status, stop_status, flag_mark)
+                results = self.match_click(connect_mod, handle_num, scr_and_click_method, screen_method, debug_status,
+                                           match_method, compress_val, target_info, click_mod1, click_mod2, run_status,
+                                           match_status, stop_status, flag_mark)
                 run_status, match_status, stop_status, match_target_name, click_pos = results
 
         # 单开场景下，通过标题找到窗口句柄
@@ -417,9 +434,9 @@ class StartMatch:
             handle_height = handle_set.get_handle_pos[3] - handle_set.get_handle_pos[1]  # 下y - 上y 计算高度
             handle_num = handle_set.get_handle_num
             screen_method = GetScreenCapture(handle_num, handle_width, handle_height)
-            results = self.matching(connect_mod, handle_num, scr_and_click_method, screen_method, debug_status,
-                                    match_method, compress_val, target_info, click_mod1, click_mod2,
-                                    run_status, match_status, stop_status, flag_mark)
+            results = self.match_click(connect_mod, handle_num, scr_and_click_method, screen_method, debug_status,
+                                       match_method, compress_val, target_info, click_mod1, click_mod2,
+                                       run_status, match_status, stop_status, flag_mark)
             run_status, match_status, stop_status, match_target_name, click_pos = results
 
         # adb模式下，暂仅支持单开
@@ -429,9 +446,9 @@ class StartMatch:
             if adb_device_connect_status:
                 print(f'<br>已连接设备[ {device_id} ]')
                 screen_method = GetScreenCapture()
-                results = self.matching(connect_mod, 0, scr_and_click_method, screen_method, debug_status, match_method,
-                                        compress_val, target_info,
-                                        click_mod1, click_mod2, run_status, match_status, stop_status, flag_mark)
+                results = self.match_click(connect_mod, 0, scr_and_click_method, screen_method, debug_status, match_method,
+                                           compress_val, target_info,
+                                           click_mod1, click_mod2, run_status, match_status, stop_status, flag_mark)
                 run_status, match_status, stop_status, match_target_name, click_pos = results
             else:
                 print(device_id)
