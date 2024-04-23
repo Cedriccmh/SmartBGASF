@@ -50,15 +50,23 @@ class Ui_MainWindow(object):
         self.label_9 = QtWidgets.QLabel(self.layoutWidget1)
         self.label_9.setObjectName("label_9")
         self.horizontalLayout_10.addWidget(self.label_9)
+
         self.template_matching = QtWidgets.QRadioButton(self.layoutWidget1)
         self.template_matching.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.template_matching.setChecked(True)
         self.template_matching.setObjectName("template_matching")
         self.horizontalLayout_10.addWidget(self.template_matching)
+
         self.sift_matching = QtWidgets.QRadioButton(self.layoutWidget1)
         self.sift_matching.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.sift_matching.setObjectName("sift_matching")
         self.horizontalLayout_10.addWidget(self.sift_matching)
+
+        self.ocr_matching = QtWidgets.QRadioButton(self.layoutWidget1)
+        self.ocr_matching.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.ocr_matching.setObjectName("ocr_matching")
+        self.horizontalLayout_10.addWidget(self.ocr_matching)
+
         self.layoutWidget2 = QtWidgets.QWidget(self.groupBox)
         self.layoutWidget2.setGeometry(QtCore.QRect(10, 90, 311, 24))
         self.layoutWidget2.setObjectName("layoutWidget2")
@@ -409,6 +417,7 @@ class Ui_MainWindow(object):
         self.label_9.setText(_translate("MainWindow", "匹配方法："))
         self.template_matching.setText(_translate("MainWindow", "模板匹配"))
         self.sift_matching.setText(_translate("MainWindow", "特征点匹配"))
+        self.ocr_matching.setText(_translate("MainWindow", "OCR文字识别"))
         self.label_8.setText(_translate("MainWindow", "压缩截图："))
         self.label_7.setText(_translate("MainWindow", "运行模式："))
         self.runmod_nomal.setText(_translate("MainWindow", "正常-可后台"))
