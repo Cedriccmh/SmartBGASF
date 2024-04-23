@@ -1,7 +1,8 @@
 
-ypython:S1066*"/Merge this if statement with the enclosing one.(¼‚‚“úÿÿÿÿ8¢…˜¹ğ1J$519c678e-ff21-4748-937e-13ba80651c58
-ypython:S1066m"/Merge this if statement with the enclosing one.(¼‚‚“úÿÿÿÿ8£…˜¹ğ1J$95789a4d-85ae-40ad-8c58-5e1eddfd661c
-hpython:S125"Remove this commented out code.(Ê“”‰şÿÿÿÿ8£…˜¹ğ1J$00f50f1e-9868-47ed-a99a-850570b7b646
-zpython:S1481~"5Replace the unused local variable "min_val" with "_".(Ğ‡§8£…˜¹ğ1J$41142b4b-c960-4033-90b6-e082873afd36
-zpython:S1481~"5Replace the unused local variable "min_loc" with "_".(Ğ‡§8£…˜¹ğ1J$0e7f36dd-5dde-491f-86c6-1212ed63c411
-cpython:S125v"Remove this commented out code.(çƒÛ¸8£…˜¹ğ1J$a1b313c5-ef61-4c6d-9764-2a7eaf51f66c
+ypython:S1066)"/Merge this if statement with the enclosing one.(¼‚‚“úÿÿÿÿ8¸çÜáğ1J$202d9e7b-78a6-4502-96b7-044dff58b1f3
+ypython:S1066l"/Merge this if statement with the enclosing one.(¼‚‚“úÿÿÿÿ8¸çÜáğ1J$04689308-53bc-4d2a-be60-48430c960d5b
+hpython:S125"Remove this commented out code.(Ê“”‰şÿÿÿÿ8¸çÜáğ1J$a210c0ab-2b5b-423b-9a28-04216cf17147
+Wpython:S1700"Rename field "ocr"(ÊüÚ–8üèâğ1J$d89ac2b5-510a-42cf-bd42-9a8e4350e7bd
+zpython:S1481}"5Replace the unused local variable "min_val" with "_".(Ğ‡§8¹çÜáğ1J$875fe7d0-b3bf-4b22-8ed1-ed935dbff0df
+zpython:S1481}"5Replace the unused local variable "min_loc" with "_".(Ğ‡§8¹çÜáğ1J$18abd977-f443-4385-8239-711783f6699a
+cpython:S125u"Remove this commented out code.(çƒÛ¸8¹çÜáğ1J$6c41f3ab-211b-46bb-acf5-e7bfd761dac6

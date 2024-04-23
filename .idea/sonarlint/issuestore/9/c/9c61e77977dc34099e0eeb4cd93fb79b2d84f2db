@@ -1,6 +1,3 @@
 
-;python:S125"Remove this commented out code.(Ê“”‰þÿÿÿÿ
-lpython:S37760"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(®ÀÅŽ
-python:S1871D"bEither merge this branch with the identical one on line "66" or change one of the implementations.(É½þòûÿÿÿÿ
-6python:S125K"Remove this commented out code.(öÉ¸ð
-6python:S125R"Remove this commented out code.(âŠåÍ
+apython:S125"Remove this commented out code.(Ê“”‰þÿÿÿÿJ$bc2f30c9-15e9-42ab-8c93-e4834e545783
+’python:S37760"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(®ÀÅŽJ$6a966fda-2c79-4c87-9f5b-e0dd7e8559cd

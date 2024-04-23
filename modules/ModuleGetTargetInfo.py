@@ -14,9 +14,9 @@ from modules.ModuleImgProcess import ImgProcess
 from modules.ModuleGetConfig import ReadConfigFile
 
 
-class GetTargetPicInfo:
+class GetTargetPicOrTextInfo:
     def __init__(self, target_modname, custom_target_path, compress_val=1):
-        super(GetTargetPicInfo, self).__init__()
+        super(GetTargetPicOrTextInfo, self).__init__()
         self.modname = target_modname
         self.custom_target_path = custom_target_path
         self.target_folder_path = None
@@ -53,6 +53,7 @@ class GetTargetPicInfo:
         folder_path = self.get_target_folder_path()
         img_file_path = []
         cv2_img = {}
+        text_data = {}
 
         # 获取每张图片的路径地址
         if folder_path is None:
@@ -60,36 +61,35 @@ class GetTargetPicInfo:
             return None  # 脚本结束
         else:
             for cur_dir, sub_dir, included_file in walk(folder_path):
-                if included_file:
-                    for file in included_file:
-                        if search(r'.jpg', file):
-                            img_file_path.append(cur_dir + "\\" + file)
-                        elif search(r'.png', file):  # 兼容png格式
-                            img_file_path.append(cur_dir + "\\" + file)
-            if len(img_file_path) == 0:
-                print("<br>未找到目标文件夹或图片地址！")
-                return None  # 脚本结束
+                for file in included_file:
+                    full_path = path.join(cur_dir, file)
+                    if search(r'\.(jpg|png)$', file):
+                        img_file_path.append(full_path)
+                    elif search(r'\.txt$', file):
+                        text_data[file] = self.read_text_file(full_path)
+                        print(f"<br>读取到文本文件: {file} <br>文本内容: {text_data[file]}")
+            if not img_file_path and not text_data:
+                print("未找到目标文件夹或图片地址！")
+                return None
 
             # 通过图片地址获取每张图片的信息
-            for i in range(len(img_file_path)):
-                # img = cv2.imread(img_file_path[i])  # 读取图片地址的图片到内存中
-                # img = np.uint8(cv2.imdecode(fromfile(img_file_path[i], dtype=uint8), -1))  # 修复中文路径下opencv报错问题
-                img = cv2.imdecode(fromfile(img_file_path[i], dtype=uint8), -1)
+            for img_path in img_file_path:
+                img = cv2.imdecode(fromfile(img_path, dtype=uint8), -1)
                 img_process = ImgProcess()
-                img_hw[i] = img.shape[:2]  # 获取目标图片宽高
-                img_name.append(self.trans_path_to_name(img_file_path[i]))  # 获取目标图片名称
+                img_hw[path.basename(img_path)] = img.shape[:2]
+                img_name.append(self.trans_path_to_name(img_path))
                 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-                # print(f"<br><img src='{img_file_path[i]}' />")
-                # img_process.show_img(img)
-                target_img_sift[i] = img_process.get_sift(img)  # 获取目标图片特征点信息
-                cv2_img[i] = img  # 将图片信息读取到内存
+                target_img_sift[path.basename(img_path)] = img_process.get_sift(img)
+                cv2_img[path.basename(img_path)] = img
 
-            return target_img_sift, img_hw, img_name, img_file_path, cv2_img  # 返回图片特征点信息，图片宽高，图片名称，图片路径地址，图片
+            return target_img_sift, img_hw, img_name, img_file_path, cv2_img, text_data  # 返回图片特征点信息，图片宽高，图片名称，图片路径地址，图片
 
     @staticmethod
     def trans_path_to_name(path_string):
-        """获取指定文件路径的文件名称"""
         pattern = compile(r'([^<>/\\|:"*?]+)\.\w+$')
-        data = pattern.findall(path_string)
-        if data:
-            return data[0]
+        return pattern.findall(path_string)[0] if pattern.findall(path_string) else None
+
+    @staticmethod
+    def read_text_file(file_path):
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return [line.strip() for line in file]

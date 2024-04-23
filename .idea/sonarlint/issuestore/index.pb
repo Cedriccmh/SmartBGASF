@@ -37,3 +37,7 @@ Y
 ).github/workflows/qodana_code_quality.yml,4\f\4f751ec70a5e7dcf5d05ba8965348b627e7b3e80
 ;
 qodana.yaml,8\5\85c3a901608a6b9adf48d245fa84828b66304e51
+F
+tests/test_read_txt.py,5\a\5a9650efcb9b6499b44b5d02dccd2f5bb20c4f0d
+B
+tests/debug_run.py,3\3\332eff3622ac7aba30dfa24c54b0bbb13fc101fd

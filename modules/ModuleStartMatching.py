@@ -15,9 +15,9 @@ from win32gui import GetWindowText
 from modules.ModuleClickModSet import ClickModSet
 from modules.ModuleDoClick import DoClick
 from modules.ModuleGetConfig import ReadConfigFile
-from modules.ModuleGetPos import GetPosByTemplateMatch, GetPosBySiftMatch, GetPosByOcrMatch
+from modules.ModuleGetPos import GetPosByTemplateMatch, GetPosBySiftMatch, Ocr
 from modules.ModuleGetScreenCapture import GetScreenCapture
-from modules.ModuleGetTargetInfo import GetTargetPicInfo
+from modules.ModuleGetTargetInfo import GetTargetPicOrTextInfo
 from modules.ModuleHandleSet import HandleSet
 from modules.ModuleImgProcess import ImgProcess
 
@@ -41,6 +41,7 @@ class StartMatch:
         self.connect_mod, self.target_modname, self.hwd_title, self.click_deviation, self.interval_seconds, self.loop_min, self.compress_val, self.match_method, self.scr_and_click_method, self.custom_target_path, self.process_num, self.handle_num = gui_info
         rc = ReadConfigFile()
         self.other_setting = rc.read_config_other_setting()
+        self.ocr = Ocr()
 
     def set_init(self, set_priority_status):
         """
@@ -52,12 +53,11 @@ class StartMatch:
         custom_target_path = self.custom_target_path
         # 获取待检测目标图片信息
         print('<br>目标图片读取中……')
-        target_info = GetTargetPicInfo(target_modname, custom_target_path,
-                                       compress_val=1).get_target_info  # 目标图片不压缩（本身就小）
+        target_info = GetTargetPicOrTextInfo(target_modname, custom_target_path, compress_val=1).get_target_info  # 目标图片不压缩（本身就小）
         if target_info is None:
             return None
 
-        target_img_sift, target_img_hw, target_img_name, target_img_file_path, target_img = target_info
+        target_img_sift, target_img_hw, target_img_name, target_img_file_path, target_img, target_text = target_info
 
         print(f'<br>读取完成！共[ {len(target_img)} ]张图片\n{target_img_name}')
         print("<br>--------------------------------------------")
@@ -157,7 +157,7 @@ class StartMatch:
         :param debug_status: 是否启用调试模式
         :param match_method: 匹配方法、模板匹配、特征点匹配
         :param compress_val: 压缩参数，越高越不压缩
-        :param target_info: 匹配目标图片
+        :param target_info: 匹配目标图片或文字信息
         :param run_status: 运行状态
         :param match_status: 匹配状态
         :param stop_status: 终止状态
@@ -167,7 +167,7 @@ class StartMatch:
         :return: 运行状态、匹配状态
         """
 
-        target_img_sift, target_img_hw, target_img_name, target_img_file_path, target_img = target_info
+        target_img_sift, target_img_hw, target_img_name, target_img_file_path, target_img, target_text = target_info
         click_mod = click_mod1  # 默认使用精确点击模型
 
         # 获取截图
@@ -203,21 +203,17 @@ class StartMatch:
         click_pos = []
 
         # Ocr识别方法
-        if match_method == 'Ocr识别':
+        if target_text:
             if compress_val != 1:
                 # test
                 screen_img = ImgProcess.img_compress(screen_img, compress_val)
                 if debug_status and compress_val != 1:
                     if self.other_setting[5]:
                         ImgProcess.show_img(screen_img)
-                # compress target_img
-                target_img_tm = []
-                for k in range(len(target_img)):
-                    target_img_tm.append(ImgProcess.img_compress(target_img[k], compress_val))
 
             # 开始匹配
-            get_pos = GetPosByOcrMatch()
-            pos, target_num = get_pos.get_pos_by_ocr(screen_img, target_img_tm, debug_status)
+
+            pos, target_num = self.ocr.get_pos_by_ocr(screen_img, target_text, debug_status)
 
         # 模板匹配方法
         if match_method == '模板匹配':

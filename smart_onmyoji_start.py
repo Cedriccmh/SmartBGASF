@@ -351,6 +351,10 @@ class EmitStr(PyQt5.QtCore.QObject):
     def write(self, text):
         self.text_writ.emit(str(text))
 
+    def flush(self):
+        # Flush method does not need to do anything.
+        pass
+
 
 def except_out_config(exc_type, value, tb):
     print('<br>Error Information:')

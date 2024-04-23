@@ -1,15 +1,16 @@
 
-¥python:S1192 "ZDefine a constant instead of duplicating this literal r'\tools\log_analysis.html' 3 times.(İàœêúÿÿÿÿ8ƒò‰´ğ1J$e139c7e6-780d-41c3-8762-59558fff990a
-§python:S1192¡"bDefine a constant instead of duplicating this literal "<br>æ—¥å¿—åˆ†æå·¥å…·ï¼š<a href=" 3 times.(Ö®ÔI8‚ò‰´ğ1J$a78a2e98-81d1-4922-add0-647883f019dc
-™python:S1192¡"TDefine a constant instead of duplicating this literal ">->ç‚¹å‡»ä½¿ç”¨</a>" 3 times.(Ö®ÔI8ƒò‰´ğ1J$2d2c0571-cdc6-4a45-84af-c711c3e0ab3c
-–python:S1192É"PDefine a constant instead of duplicating this literal "æŒ‰åˆ†é’Ÿè®¡ç®—" 3 times.(©¾Õ”8ƒò‰´ğ1J$eb769c55-23d6-40b6-a9f2-f9651a28230e
-upython:S1066Ù"/Merge this if statement with the enclosing one.(ö¶½á8„ò‰´ğ1J$e9c920f6-450d-411e-bca8-d9755252ae4a
-›python:S3776±"URefactor this function to reduce its Cognitive Complexity from 160 to the 15 allowed.(¯Œåò8…ò‰´ğ1J$7efd3677-dfa1-46ec-8c8f-6c79a05145ff
-‹python:S3457Ö"EAdd replacement fields or use a normal string instead of an f-string.(Ó¾“ø8…ò‰´ğ1J$6f325bae-ae61-4b17-8001-ccf460b4b2d4
-cpython:S125é"Remove this commented out code.(Ğğ\8†ò‰´ğ1J$abdcca01-26df-4763-86a6-f8327a91530a
-cpython:S125Á"Remove this commented out code.(çÔ°G8†ò‰´ğ1J$80600764-69f9-4d55-9b54-8cb7adebaf31
-python:S3457Ò"EAdd replacement fields or use a normal string instead of an f-string.(‰×ŠÕÿÿÿÿÿ8†ò‰´ğ1J$f36ce5ac-5ace-42a4-a922-1f3fb3e4e7e1
-python:S3457ã"EAdd replacement fields or use a normal string instead of an f-string.(êÕ±†úÿÿÿÿ8†ò‰´ğ1J$205ebfb5-eb96-49df-afbd-d9335680d847
-‹python:S3457Š"EAdd replacement fields or use a normal string instead of an f-string.(Şêœ¹8†ò‰´ğ1J$4836ab70-7fe1-46ca-a8d7-07a75e2617b5
-bpython:S2772•"Remove this unneeded "pass".(ã‘Û¾8†ò‰´ğ1J$aea741fe-eb9f-4d1b-9570-da4081ae71ea
-‹python:S3457‘"EAdd replacement fields or use a normal string instead of an f-string.(†ğ¤8†ò‰´ğ1J$3a40b64f-5dd7-4f7a-a2e8-200b9edf77ef
+§python:S1192§"bDefine a constant instead of duplicating this literal "<br>æ—¥å¿—åˆ†æå·¥å…·ï¼š<a href=" 3 times.(Ö®ÔI8¬‹€áğ1J$c278da26-16f8-489e-a95c-decb89acb1e9
+™python:S1192§"TDefine a constant instead of duplicating this literal ">->ç‚¹å‡»ä½¿ç”¨</a>" 3 times.(Ö®ÔI8¬‹€áğ1J$55a7dc7d-f198-4201-bdbc-87e1fb3bb9cd
+–python:S1192Ï"PDefine a constant instead of duplicating this literal "æŒ‰åˆ†é’Ÿè®¡ç®—" 3 times.(©¾Õ”8¬‹€áğ1J$e89583fd-8ec8-4879-a283-e7a1262e55fe
+¥python:S1192¦"ZDefine a constant instead of duplicating this literal r'\tools\log_analysis.html' 3 times.(İàœêúÿÿÿÿ8¬‹€áğ1J$ee1f4c04-d48f-4561-b8c6-5fafea25fa92
+upython:S1066ß"/Merge this if statement with the enclosing one.(ö¶½á8­‹€áğ1J$31e9bcbc-d8a4-480d-87b0-fe7952c9f101
+›python:S3776·"URefactor this function to reduce its Cognitive Complexity from 160 to the 15 allowed.(¯Œåò8­‹€áğ1J$6a005995-bb2c-4eb1-adba-e9c90e1102c3
+‹python:S3457Ü"EAdd replacement fields or use a normal string instead of an f-string.(Ó¾“ø8­‹€áğ1J$bbdd550a-0dc5-494f-8258-af04edad7e09
+cpython:S125ï"Remove this commented out code.(Ğğ\8­‹€áğ1J$85bb590e-32c4-46fa-a321-d184aa7b1442
+cpython:S125Ç"Remove this commented out code.(çÔ°G8­‹€áğ1J$3e645582-51d0-4418-9891-edbff91098ac
+python:S3457Ø"EAdd replacement fields or use a normal string instead of an f-string.(‰×ŠÕÿÿÿÿÿ8­‹€áğ1J$cab63f5e-bc9f-4417-b642-a8dc3c2b5c0d
+python:S3457é"EAdd replacement fields or use a normal string instead of an f-string.(êÕ±†úÿÿÿÿ8­‹€áğ1J$bb62a029-f5b3-4ae6-9296-c427f08d816c
+‹python:S3457"EAdd replacement fields or use a normal string instead of an f-string.(Şêœ¹8­‹€áğ1J$1d257465-3af5-4543-b470-858198956c71
+bpython:S2772›"Remove this unneeded "pass".(ã‘Û¾8­‹€áğ1J$66411816-5584-4138-b557-81547a86ac39
+‹python:S3457—"EAdd replacement fields or use a normal string instead of an f-string.(†ğ¤8­‹€áğ1J$24156ae7-e3b0-48b9-bd81-eb8d0e2d25a9
+ipython:S125Ú"Remove this commented out code.(‘Üˆ–úÿÿÿÿ8­‹€áğ1J$5810b9ae-d67d-4348-a6f9-49f39ec5ae23

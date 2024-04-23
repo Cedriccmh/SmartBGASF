@@ -16,15 +16,14 @@ rc = ReadConfigFile()
 other_setting = rc.read_config_other_setting()
 
 
-class GetPosByOcrMatch:
+class Ocr:
 
     def __init__(self, accuracy=0.6, adb_mode=False, adb_num=0):
-        super(GetPosByOcrMatch, self).__init__()
+        super(Ocr, self).__init__()
         self.ocr = hub.Module(name="chinese_ocr_db_crnn_mobile", enable_mkldnn=True)
         self.accuracy = accuracy
 
-    @staticmethod
-    def get_pos_by_ocr(screen_capture, target_texts, debug_status):
+    def get_pos_by_ocr(self, screen_capture, target_texts, debug_status):
         """
         通过OCR文字识别匹配，可以识别文字，不受缩放、旋转的影响
         :return: 返回坐标(x,y)
@@ -36,7 +35,7 @@ class GetPosByOcrMatch:
         pos = None
         i = 0
         for i in range(len(target_texts)):
-            pos = GetPosByOcrMatch.ocr_matching(screen_capture, target_texts[i], debug_status,i, use_gpu=False)
+            pos = self.ocr_matching(screen_capture, target_texts[i], debug_status,i, use_gpu=False)
             if pos is not None:
                 if debug_status:
                     if other_setting[5]:

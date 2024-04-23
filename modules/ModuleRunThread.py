@@ -55,13 +55,16 @@ class MatchingThread(QtCore.QThread):
     finished_signal = QtCore.pyqtSignal(bool)
 
     # 构造函数，thread初始化创建时，传入UI窗体类，可以在run中直接获取GUI中的参数
-    def __init__(self, main_window_ui):
+    def __init__(self, main_window_ui, is_dev_mode=False, dev_info=None):
         super(MatchingThread, self).__init__()
         self.isPause = False
         self.isCancel = False
         self.cond = QtCore.QWaitCondition()
         self.mutex = QtCore.QMutex()
         self.ui_info = main_window_ui
+        self.is_dev_mode = is_dev_mode
+        self.dev_info = dev_info
+
 
     # 暂停
     def pause(self):
@@ -119,6 +122,9 @@ class MatchingThread(QtCore.QThread):
         """
         :return: GUI界面的参数
         """
+        if self.is_dev_mode:
+            return self.dev_info
+
         loop_min = float(self.ui_info.loop_min.value())  # 运行时长
         if self.ui_info.run_by_min.isChecked():
             times_mode = self.ui_info.run_by_min.text()
@@ -462,3 +468,15 @@ class MatchingThread(QtCore.QThread):
 
         # 运行结束重置按钮可用状态
         self.finished_signal.emit(True)
+
+
+if __name__ == '__main__':
+    # dev_info = ['Windows程序窗体', '自定义', '阴阳师-网易游戏', 50, 1, 1, 0.8, '模板匹配', '后台执行', 'D:/img', '多开', '0', '电脑关机', True, True, 1, 0.8, '按分钟计算']
+    dev_info = ['Windows程序窗体', '百鬼夜行', '雷电模拟器', 35, 5.0, 90.0, 1.0, '模板匹配', '正常-可后台', None, '单开', 0,
+                '不执行任何操作', False, True, 1, 0.8, '按分钟计算']
+    mt = MatchingThread(None, True, dev_info)
+    mt.start()
+    mt.run()
+
+
+
