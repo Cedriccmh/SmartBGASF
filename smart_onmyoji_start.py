@@ -115,8 +115,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.runmod_compatibility.setChecked(True)
         if self.match_method_value == '模板匹配':
             self.template_matching.setChecked(True)
-        else:
+        elif self.match_method_value == '特征点匹配':
             self.sift_matching.setChecked(True)
+        else:
+            self.ocr_matching.setChecked(True)
         if self.process_num_value == '单开':
             self.process_num_one.setChecked(True)
             self.show_handle_title.show()
@@ -314,6 +316,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.if_end_do.setEnabled(bool_val)
         self.template_matching.setEnabled(bool_val)
         self.sift_matching.setEnabled(bool_val)
+        self.ocr_matching.setEnabled(bool_val)
         self.runmod_nomal.setEnabled(bool_val)
         self.runmod_compatibility.setEnabled(bool_val)
         self.debug.setEnabled(bool_val)
