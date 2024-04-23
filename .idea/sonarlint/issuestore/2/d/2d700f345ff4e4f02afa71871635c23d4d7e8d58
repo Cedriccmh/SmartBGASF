@@ -1,0 +1,9 @@
+
+lpython:S3776#"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ğíá”
+;python:S125="Remove this commented out code.(œ¡¿Úüÿÿÿÿ
+6python:S125P"Remove this commented out code.(¯ÌÜØ
+lpython:S3776V"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÿÓÔ¹
+Ipython:S1481­"+Replace the unused loop index "i" with "_".(£í¶ÿÿÿÿÿ
+Upython:S5754º"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+<python:S125¢"Remove this commented out code.(²¯è™ıÿÿÿÿ
+Cpython:S1481Æ"+Replace the unused loop index "t" with "_".(Šèà|

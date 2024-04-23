@@ -1,0 +1,10 @@
+
+qpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(íéÍ¥şÿÿÿÿ
+apython:S6711"DUse a "numpy.random.Generator" here instead of this legacy function.(íå“ßûÿÿÿÿ
+\python:S6711'"DUse a "numpy.random.Generator" here instead of this legacy function.(Ä´É±
+6python:S125)"Remove this commented out code.(”ê „
+6python:S1250"Remove this commented out code.(Î«ÍË
+apython:S6711V"DUse a "numpy.random.Generator" here instead of this legacy function.(À½™øÿÿÿÿ
+apython:S6711g"DUse a "numpy.random.Generator" here instead of this legacy function.(­ığÿÿÿÿÿ
+apython:S6711h"DUse a "numpy.random.Generator" here instead of this legacy function.(‘ÅÚüûÿÿÿÿ
+<python:S125‡"Remove this commented out code.(üÇÓ›ûÿÿÿÿ
