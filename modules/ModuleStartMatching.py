@@ -15,7 +15,7 @@ from win32gui import GetWindowText
 from modules.ModuleClickModSet import ClickModSet
 from modules.ModuleDoClick import DoClick
 from modules.ModuleGetConfig import ReadConfigFile
-from modules.ModuleGetPos import GetPosByTemplateMatch, GetPosBySiftMatch, Ocr
+from modules.ModuleGetPos import GetPosByTemplateMatch, GetPosBySiftMatch, OcrMatcher
 from modules.ModuleGetScreenCapture import GetScreenCapture
 from modules.ModuleGetTargetInfo import GetTargetPicOrTextInfo
 from modules.ModuleHandleSet import HandleSet
@@ -35,13 +35,30 @@ def time_transform(seconds):
 
 
 class StartMatch:
-
     def __init__(self, gui_info):
-        super(StartMatch, self).__init__()
-        self.connect_mod, self.target_modname, self.hwd_title, self.click_deviation, self.interval_seconds, self.loop_min, self.compress_val, self.match_method, self.scr_and_click_method, self.custom_target_path, self.process_num, self.handle_num = gui_info
-        rc = ReadConfigFile()
-        self.other_setting = rc.read_config_other_setting()
-        self.ocr = Ocr()
+        # Unpack gui_info array into respective variables
+        (self.connect_mod, self.target_modname, self.hwd_title, self.click_deviation,
+         self.interval_seconds, self.loop_min, self.compress_val, self.match_method,
+         self.scr_and_click_method, self.custom_target_path, self.process_num,
+         self.handle_num) = gui_info
+
+        self.load_other_settings()
+        self.initialize_ocr()
+
+    def load_other_settings(self):
+        try:
+            rc = ReadConfigFile()
+            self.other_setting = rc.read_config_other_setting()
+        except Exception as e:
+            self.other_setting = {}
+            print(f"Error loading settings: {e}")
+
+    def initialize_ocr(self):
+        try:
+            self.ocr = OcrMatcher()
+        except Exception as e:
+            self.ocr = None
+            print(f"Error initializing OCR: {e}")
 
     def set_init(self, set_priority_status):
         """
@@ -210,41 +227,40 @@ class StartMatch:
                 if debug_status and compress_val != 1:
                     if self.other_setting[5]:
                         ImgProcess.show_img(screen_img)
-
             # 开始匹配
-
             pos, target_num = self.ocr.get_pos_by_ocr(screen_img, target_text, debug_status)
 
-        # 模板匹配方法
-        if match_method == '模板匹配':
-            if compress_val != 1:  # 压缩图片，模板和截图必须一起压缩
-                screen_img = ImgProcess.img_compress(screen_img, compress_val)
-                if debug_status and compress_val != 1:
-                    if self.other_setting[5]:
-                        ImgProcess.show_img(screen_img)  # test显示压缩后截图
-                target_img_tm = []
-                for k in range(len(target_img)):
-                    target_img_tm.append(ImgProcess.img_compress(target_img[k], compress_val))
+        if pos is None:
+            # 模板匹配方法
+            if match_method == '模板匹配':
+                if compress_val != 1:  # 压缩图片，模板和截图必须一起压缩
+                    screen_img = ImgProcess.img_compress(screen_img, compress_val)
+                    if debug_status and compress_val != 1:
+                        if self.other_setting[5]:
+                            ImgProcess.show_img(screen_img)  # test显示压缩后截图
+                    target_img_tm = []
+                    for k in range(len(target_img)):
+                        target_img_tm.append(ImgProcess.img_compress(target_img[k], compress_val))
 
-            # 开始匹配
-            get_pos = GetPosByTemplateMatch()
-            pos, target_num = get_pos.get_pos_by_template(screen_img, target_img_tm, debug_status)
+                # 开始匹配
+                get_pos = GetPosByTemplateMatch()
+                pos, target_num = get_pos.get_pos_by_template(screen_img, target_img_tm, debug_status)
 
-        # 特征点匹配方法，准确度不能保证，但是不用适配不同设备
-        elif match_method == '特征点匹配':
-            if compress_val != 1:  # 压缩图片，特征点匹配方法，只压缩截图
-                screen_img = ImgProcess.img_compress(screen_img, compress_val)
-                if debug_status and compress_val != 1:
-                    if self.other_setting[5]:
-                        ImgProcess.show_img(screen_img)  # test显示压缩后截图
-            screen_sift = ImgProcess.get_sift(screen_img)  # 获取截图的特征点
+            # 特征点匹配方法，准确度不能保证，但是不用适配不同设备
+            elif match_method == '特征点匹配':
+                if compress_val != 1:  # 压缩图片，特征点匹配方法，只压缩截图
+                    screen_img = ImgProcess.img_compress(screen_img, compress_val)
+                    if debug_status and compress_val != 1:
+                        if self.other_setting[5]:
+                            ImgProcess.show_img(screen_img)  # test显示压缩后截图
+                screen_sift = ImgProcess.get_sift(screen_img)  # 获取截图的特征点
 
-            # 开始匹配
-            get_pos = GetPosBySiftMatch()
-            pos, target_num = get_pos.get_pos_by_sift(target_img_sift, screen_sift,
-                                                      target_img_hw,
-                                                      target_img, screen_img, debug_status)
-            del screen_sift  # 删除截图的特征点信息
+                # 开始匹配
+                get_pos = GetPosBySiftMatch()
+                pos, target_num = get_pos.get_pos_by_sift(target_img_sift, screen_sift,
+                                                          target_img_hw,
+                                                          target_img, screen_img, debug_status)
+                del screen_sift  # 删除截图的特征点信息
 
         if pos and target_num is not None:
             print(f"<br>匹配成功! ")
@@ -465,7 +481,7 @@ class StartMatch:
             print("<br>----------------------------------------------------------")
             print(f"<br>警告：现在 [ {now_time} ]【非正常游戏时间，请勿过于奔放，否则后果自负】")
             print("<br>----------------------------------------------------------")
-            for t in range(8):
+            for t in range(2):
                 print(f"<br>[ {8 - t} ] 秒后开始……")
                 sleep(1)
             print("<br>----------------------------------------------------------")

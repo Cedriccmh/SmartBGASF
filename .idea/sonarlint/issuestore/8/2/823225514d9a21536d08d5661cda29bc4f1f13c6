@@ -1,16 +1,18 @@
 
-§python:S1192§"bDefine a constant instead of duplicating this literal "<br>ζ—¥εΏ—ε†ζε·¥ε…·οΌ<a href=" 3 times.(Φ®ΤI8¬‹€απ1J$c278da26-16f8-489e-a95c-decb89acb1e9
-™python:S1192§"TDefine a constant instead of duplicating this literal ">->η‚Ήε‡»δ½Ώη”¨</a>" 3 times.(Φ®ΤI8¬‹€απ1J$55a7dc7d-f198-4201-bdbc-87e1fb3bb9cd
-–python:S1192Ο"PDefine a constant instead of duplicating this literal "ζ‰ε†ι’θ®΅η®—" 3 times.(©ΎΥ”8¬‹€απ1J$e89583fd-8ec8-4879-a283-e7a1262e55fe
-¥python:S1192¦"ZDefine a constant instead of duplicating this literal r'\tools\log_analysis.html' 3 times.(έΰκϊÿÿÿÿ8¬‹€απ1J$ee1f4c04-d48f-4561-b8c6-5fafea25fa92
-upython:S1066ί"/Merge this if statement with the enclosing one.(φ¶½α8­‹€απ1J$31e9bcbc-d8a4-480d-87b0-fe7952c9f101
-›python:S3776·"URefactor this function to reduce its Cognitive Complexity from 160 to the 15 allowed.(―ες8­‹€απ1J$6a005995-bb2c-4eb1-adba-e9c90e1102c3
-‹python:S3457ά"EAdd replacement fields or use a normal string instead of an f-string.(ΣΎ“ψ8­‹€απ1J$bbdd550a-0dc5-494f-8258-af04edad7e09
-cpython:S125ο"Remove this commented out code.(Ππ\8­‹€απ1J$85bb590e-32c4-46fa-a321-d184aa7b1442
-cpython:S125Η"Remove this commented out code.(ηΤ°G8­‹€απ1J$3e645582-51d0-4418-9891-edbff91098ac
-python:S3457Ψ"EAdd replacement fields or use a normal string instead of an f-string.(‰ΧΥÿÿÿÿÿ8­‹€απ1J$cab63f5e-bc9f-4417-b642-a8dc3c2b5c0d
-python:S3457ι"EAdd replacement fields or use a normal string instead of an f-string.(κΥ±†ϊÿÿÿÿ8­‹€απ1J$bb62a029-f5b3-4ae6-9296-c427f08d816c
-‹python:S3457"EAdd replacement fields or use a normal string instead of an f-string.(ήκΉ8­‹€απ1J$1d257465-3af5-4543-b470-858198956c71
-bpython:S2772›"Remove this unneeded "pass".(γ‘ΫΎ8­‹€απ1J$66411816-5584-4138-b557-81547a86ac39
-‹python:S3457—"EAdd replacement fields or use a normal string instead of an f-string.(†π¤8­‹€απ1J$24156ae7-e3b0-48b9-bd81-eb8d0e2d25a9
-ipython:S125Ϊ"Remove this commented out code.(‘ά–ϊÿÿÿÿ8­‹€απ1J$5810b9ae-d67d-4348-a6f9-49f39ec5ae23
+§python:S1192§"bDefine a constant instead of duplicating this literal "<br>ζ—¥εΏ—ε†ζε·¥ε…·οΌ<a href=" 3 times.(Φ®ΤI8¬‹€απ1J$f0a10dab-beae-4400-8c47-d5ee2ce1831d
+™python:S1192§"TDefine a constant instead of duplicating this literal ">->η‚Ήε‡»δ½Ώη”¨</a>" 3 times.(Φ®ΤI8¬‹€απ1J$892acd64-7171-4e25-9b1a-ca205e6f18bd
+–python:S1192Ο"PDefine a constant instead of duplicating this literal "ζ‰ε†ι’θ®΅η®—" 3 times.(©ΎΥ”8¬‹€απ1J$93f09e80-2350-4a68-8f17-9e2913cd8113
+›python:S1192h"VDefine a constant instead of duplicating this literal 'δΈζ‰§θ΅δ»»δ½•ζ“δ½' 3 times.(δδ£¶8ζ―ς1J$4cc7001d-5c13-4433-9372-754ea0b80ab3
+¥python:S1192¦"ZDefine a constant instead of duplicating this literal r'\tools\log_analysis.html' 3 times.(έΰκϊÿÿÿÿ8¬‹€απ1J$0d384072-7587-4e09-8be5-a1c5ec94b7dc
+™python:S1192l"TDefine a constant instead of duplicating this literal 'Windowsη¨‹εΊηª—δ½“' 3 times.(Κ”Ίδ8ζ―ς1J$2087d27e-f786-4bfc-b406-f156c0357b4b
+upython:S1066ί"/Merge this if statement with the enclosing one.(φ¶½α8­‹€απ1J$fd50554a-6960-413f-a0fb-d08dbb8011c2
+›python:S3776·"URefactor this function to reduce its Cognitive Complexity from 160 to the 15 allowed.(―ες8­‹€απ1J$5ee61b36-ca92-414e-a986-6c5305921146
+‹python:S3457ά"EAdd replacement fields or use a normal string instead of an f-string.(ΣΎ“ψ8­‹€απ1J$37f4c80f-5772-4868-91e2-dc2b892f1c0a
+cpython:S125ο"Remove this commented out code.(Ππ\8­‹€απ1J$6f8762ec-efae-4a56-8b72-7c7814247ad9
+cpython:S125Η"Remove this commented out code.(ηΤ°G8­‹€απ1J$3c6878bd-e36f-40a4-854f-57dd94b50008
+python:S3457Ψ"EAdd replacement fields or use a normal string instead of an f-string.(‰ΧΥÿÿÿÿÿ8­‹€απ1J$f496b593-2aef-4ee1-a804-255237bda58b
+python:S3457ι"EAdd replacement fields or use a normal string instead of an f-string.(κΥ±†ϊÿÿÿÿ8­‹€απ1J$2ce744e0-5d9d-4dde-a1a3-7f76867018ba
+‹python:S3457"EAdd replacement fields or use a normal string instead of an f-string.(ήκΉ8­‹€απ1J$1d1ddc03-e610-4921-be57-d428fff3349e
+bpython:S2772›"Remove this unneeded "pass".(γ‘ΫΎ8­‹€απ1J$efeb448d-c711-4832-8b3a-5a3199cd0e88
+‹python:S3457—"EAdd replacement fields or use a normal string instead of an f-string.(†π¤8­‹€απ1J$7a77b795-c6ea-4389-837d-16a023c69756
+cpython:S125ά"Remove this commented out code.(›τ8Ε§―ς1J$b0457834-adb2-48ce-86ae-ee658ebc8fd2

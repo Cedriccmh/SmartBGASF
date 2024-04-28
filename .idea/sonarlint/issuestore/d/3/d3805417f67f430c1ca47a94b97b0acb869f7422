@@ -1,8 +1,14 @@
 
-ypython:S1066)"/Merge this if statement with the enclosing one.(¼‚‚“úÿÿÿÿ8¸çÜáğ1J$202d9e7b-78a6-4502-96b7-044dff58b1f3
-ypython:S1066l"/Merge this if statement with the enclosing one.(¼‚‚“úÿÿÿÿ8¸çÜáğ1J$04689308-53bc-4d2a-be60-48430c960d5b
-hpython:S125"Remove this commented out code.(Ê“”‰şÿÿÿÿ8¸çÜáğ1J$a210c0ab-2b5b-423b-9a28-04216cf17147
-Wpython:S1700"Rename field "ocr"(ÊüÚ–8üèâğ1J$d89ac2b5-510a-42cf-bd42-9a8e4350e7bd
-zpython:S1481}"5Replace the unused local variable "min_val" with "_".(Ğ‡§8¹çÜáğ1J$875fe7d0-b3bf-4b22-8ed1-ed935dbff0df
-zpython:S1481}"5Replace the unused local variable "min_loc" with "_".(Ğ‡§8¹çÜáğ1J$18abd977-f443-4385-8239-711783f6699a
-cpython:S125u"Remove this commented out code.(çƒÛ¸8¹çÜáğ1J$6c41f3ab-211b-46bb-acf5-e7bfd761dac6
+ypython:S1066"/Merge this if statement with the enclosing one.(¼‚‚“úÿÿÿÿ8ØÛè­ò1J$93a0e34c-2231-4159-b29b-d92e9d3c5527
+upython:S14814"0Remove the unused local variable "screen_width".(”—Ÿı8ÙÛè­ò1J$6169d396-b929-46f4-9cbf-668a7be608e1
+ypython:S14815"/Remove the unused local variable "screen_high".(™Á’˜ûÿÿÿÿ8ÙÛè­ò1J$c0d86f2b-f2f6-4db9-9c02-5594be3f18c2
+xpython:S1172K"3Remove the unused function parameter "target_text".(¹ñœ¼8ÚÛè­ò1J$574dd516-baf4-4322-b6f9-4cda08eca388
+npython:S1172K")Remove the unused function parameter "i".(¹ñœ¼8ÚÛè­ò1J$f74e057f-f9a5-416c-b0a3-d19d6f23948b
+ypython:S1172K"4Remove the unused function parameter "debug_status".(¹ñœ¼8ÚÛè­ò1J$d7d3d98b-13d5-42c5-9756-7894fa97e2d8
+tpython:S1172K"/Remove the unused function parameter "use_gpu".(¹ñœ¼8ÚÛè­ò1J$85d3edbd-ac5a-4ec7-a23f-af7575c59d81
+ppython:S1481V"+Remove the unused local variable "results".(¥œËÍ8ÚÛè­ò1J$9f0ff188-a766-4cc6-965d-f2c8313f9f4b
+cpython:S125U"Remove this commented out code.(ë‚÷»8ÚÛè­ò1J$095408d6-45e3-49b9-b402-74bb6aa79f1c
+hpython:S125W"Remove this commented out code.(âÊÌÈøÿÿÿÿ8ÚÛè­ò1J$0729c48e-665b-49df-a053-322a3dbd1f72
+{python:S1481‘"5Replace the unused local variable "min_loc" with "_".(Ğ‡§8ÚÛè­ò1J$686dd9ca-39c6-4205-aa5d-f4cd75cf9741
+{python:S1481‘"5Replace the unused local variable "min_val" with "_".(Ğ‡§8ÚÛè­ò1J$ba705a8d-1997-40dc-a926-a184275fe4e3
+dpython:S125‰"Remove this commented out code.(çƒÛ¸8ÚÛè­ò1J$98c8eebe-e9be-40d3-a010-eb6be0afbd1c

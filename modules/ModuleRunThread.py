@@ -456,7 +456,7 @@ class MatchingThread(QtCore.QThread):
                       "<br>-------------------------------------------")
                 if other_setting[7]:
                     HandleSet.play_sounds("warming")  # 播放提示音
-                for t in range(10):
+                for t in range(1):
                     print(f"<br>{10 - t}秒后重试！")
                     sleep(1)
                 print("<br>-------------------------------------------")
@@ -471,9 +471,14 @@ class MatchingThread(QtCore.QThread):
 
 
 if __name__ == '__main__':
-    # dev_info = ['Windows程序窗体', '自定义', '阴阳师-网易游戏', 50, 1, 1, 0.8, '模板匹配', '后台执行', 'D:/img', '多开', '0', '电脑关机', True, True, 1, 0.8, '按分钟计算']
     dev_info = ['Windows程序窗体', '百鬼夜行', '雷电模拟器', 35, 5.0, 90.0, 1.0, '模板匹配', '正常-可后台', None, '单开', 0,
-                '不执行任何操作', False, True, 1, 0.8, '按分钟计算']
+                '不执行任何操作', False, True, 1, 1, '按分钟计算']
+    # connect_mod, target_path_mode, handle_title, click_deviation, interval_seconds, loop_min, img_compress_val,
+    # match_method, run_mode, custom_target_path, process_num, handle_num, if_end, debug_status, set_priority_status,
+    # interval_seconds_max, screen_scale_rate, times_mode
+    dev_info = ['Windows程序窗体', '百鬼夜行', '雷电模拟器', 35, 5.0, 90.0, 1.0, '模板匹配', '正常-可后台', None, '单开', 0,
+                '不执行任何操作', False, True, 1, 1, '按分钟计算']
+
     mt = MatchingThread(None, True, dev_info)
     mt.start()
     mt.run()

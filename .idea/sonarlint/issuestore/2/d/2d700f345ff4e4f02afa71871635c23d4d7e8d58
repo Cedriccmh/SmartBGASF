@@ -1,9 +1,9 @@
 
-lpython:S3776#"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ğíá”
-;python:S125="Remove this commented out code.(œ¡¿Úüÿÿÿÿ
-6python:S125P"Remove this commented out code.(¯ÌÜØ
-lpython:S3776V"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÿÓÔ¹
-Ipython:S1481­"+Replace the unused loop index "i" with "_".(£í¶ÿÿÿÿÿ
-Upython:S5754º"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-<python:S125¢"Remove this commented out code.(²¯è™ıÿÿÿÿ
-Cpython:S1481Æ"+Replace the unused loop index "t" with "_".(Šèà|
+’python:S3776#"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ğíá”J$afb10e9d-8119-4cdb-8d43-ae94e52a3cf6
+apython:S125="Remove this commented out code.(œ¡¿ÚüÿÿÿÿJ$47f2b765-0f94-4be4-9472-771e61ca104c
+\python:S125P"Remove this commented out code.(¯ÌÜØJ$124ef1b3-bb34-484f-8953-1d3a07a43368
+’python:S3776V"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÿÓÔ¹J$349d7a3b-4dcc-4e45-a7a9-d4de9048dd89
+opython:S1481­"+Replace the unused loop index "i" with "_".(£í¶ÿÿÿÿÿJ$16ef357b-8af7-4501-b743-b38ef2440a61
+{python:S5754º"<Specify an exception class to catch or reraise the exception(ˆÊÉ·J$63ea2e73-2253-4ec3-bb1d-e539672c0495
+bpython:S125¢"Remove this commented out code.(²¯è™ıÿÿÿÿJ$0df476cb-b79f-41ef-99fc-e92babb0bb40
+ipython:S1481Æ"+Replace the unused loop index "t" with "_".(Šèà|J$864a7e24-2a8a-43a3-886a-bf79891c81de

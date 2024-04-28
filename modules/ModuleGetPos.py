@@ -3,25 +3,45 @@
 # @Version : Python3.7.6
 # @MIT License Copyright (c) 2022 ACE
 
-# from cv2 import cv2
 import cv2
 from numpy import int32, float32
 
 from modules.ModuleGetConfig import ReadConfigFile
 from modules.ModuleImgProcess import ImgProcess
-import paddlehub as hub
+from paddleocr import PaddleOCR
 
+import os
+import pyautogui
 
 rc = ReadConfigFile()
 other_setting = rc.read_config_other_setting()
 
 
-class Ocr:
+class OcrMatcher:
+    """ Unified OCR_Player class with integrated Player functionalities. """
 
     def __init__(self, accuracy=0.6, adb_mode=False, adb_num=0):
-        super(Ocr, self).__init__()
-        self.ocr = hub.Module(name="chinese_ocr_db_crnn_mobile", enable_mkldnn=True)
         self.accuracy = accuracy
+        self.adb_mode = adb_mode
+        self.load_target()
+        self.ocr = PaddleOCR(use_angle_cls=False, lang='ch')
+
+        if adb_mode:
+            adb = "adb"  # Assuming adb command is simply 'adb'
+            re = os.popen(f'{adb} devices').read()
+            print(re)
+            device_list = [e.split('\t')[0] for e in re.split('\n') if '\tdevice' in e]
+            assert len(device_list) >= 1, '未检测到ADB连接设备'
+            self.device = device_list[adb_num]
+            re = os.popen(f'{adb} -s {self.device} shell wm size').read()
+            print(re)
+        else:
+            w, h = pyautogui.size()
+            print(f'Physical size: {w}x{h}')
+
+    def load_target(self):
+        # Placeholder for the load_target method implementation
+        pass
 
     def get_pos_by_ocr(self, screen_capture, target_texts, debug_status):
         """
@@ -31,18 +51,26 @@ class Ocr:
         # print("正在匹配…")
         screen_width = screen_capture.shape[1]
         screen_high = screen_capture.shape[0]
-
         pos = None
-        i = 0
-        for i in range(len(target_texts)):
-            pos = self.ocr_matching(screen_capture, target_texts[i], debug_status,i, use_gpu=False)
-            if pos is not None:
-                if debug_status:
-                    if other_setting[5]:
-                        draw_img = ImgProcess.draw_pos_in_img(screen_capture, pos, [screen_high / 10, screen_width / 10])
-                        ImgProcess.show_img(draw_img)
-                break
-        return pos, i
+        results = None
+        # cast to list
+        for i, target_text in enumerate(target_texts):
+            try:
+                results = self.ocr.ocr(screen_capture, cls=False)
+            except Exception as e:
+                print(f"Error: {e}")
+            data = results[0]
+
+            found = [e for e in data if target_text in e[1][0]]
+            if debug_status:
+                print(f'目标：{target_text},  找到数量：{len(found)},'f"<br>第 [ {i + 1} ] 个文本")
+            if found:
+                x1, y1 = found[0][0][0]
+                x2, y2 = found[0][0][2]
+                center = (int((x1 + x2) / 2), int((y1 + y2) / 2))
+                return center, i
+            return None
+        return pos
 
     def ocr_matching(self, screen_capture, target_text, debug_status, i, use_gpu=False):
         """
@@ -54,30 +82,18 @@ class Ocr:
         :param use_gpu: 是否使用GPU
         :return: 返回坐标(x,y) 与opencv坐标系对应
         """
-        imgs = [screen_capture, ]
-        results = self.ocr.recognize_text(
-            images=imgs,  # 图片数据，ndarray.shape 为 [H, W, C]，BGR格式；
-            use_gpu=use_gpu,  # 是否使用 GPU；若使用GPU，请先设置CUDA_VISIBLE_DEVICES环境变量
-            output_dir='ocr_result',  # 图片的保存路径，默认设为 ocr_result；
-            visualization=debug_status,  # 是否将识别结果保存为图片文件；
-            box_thresh=self.accuracy,  # 检测文本框置信度的阈值；
-            text_thresh=self.accuracy)  # 识别中文文本置信度的阈值；
-        data = results[0]['data']
-
-        found = [e for e in data if target_text in e['text']]
-        if debug_status:
-            print(f'目标：{target_text},  找到数量：{len(found)},'f"<br>第 [ {i+1} ] 个文本")
-        if found:
-            p1, _, p2, _ = found[0]['text_box_position']
-            (x1, y1), (x2, y2) = p1, p2
-            center = (int((x1 + x2) / 2), int((y1 + y2) / 2))
-            return center
-        return None
+        # imgs = [screen_capture, ]
+        results = self.ocr.ocr(screen_capture)
+        # results = self.ocr.recognize_text(
+        #     images=imgs,  # 图片数据，ndarray.shape 为 [H, W, C]，BGR格式；
+        #     use_gpu=use_gpu,  # 是否使用 GPU；若使用GPU，请先设置CUDA_VISIBLE_DEVICES环境变量
+        #     output_dir='ocr_result',  # 图片的保存路径，默认设为 ocr_result；
+        #     visualization=debug_status,  # 是否将识别结果保存为图片文件；
+        #     box_thresh=self.accuracy,  # 检测文本框置信度的阈值；
+        #     text_thresh=self.accuracy)  # 识别中文文本置信度的阈值；
 
 
 class GetPosByTemplateMatch:
-    def __init__(self):
-        super(GetPosByTemplateMatch, self).__init__()
 
     @staticmethod
     def get_pos_by_template(screen_capture, target_pic, debug_status):
@@ -94,19 +110,23 @@ class GetPosByTemplateMatch:
         val = 0.80  # 设置相似度
         i = 0
         # print("<br>正在匹配…")
-        for i in range(len(target_pic)):
+        for i, pic in enumerate(target_pic.values()):
             # print(i)
-            pos = GetPosByTemplateMatch.template_matching(screen_capture,
-                                                          target_pic[i],
-                                                          screen_width,
-                                                          screen_high,
-                                                          val,
-                                                          debug_status,
-                                                          i)
+            try:
+                pos = GetPosByTemplateMatch.template_matching(screen_capture, pic, screen_width, screen_high,
+                                                              val, debug_status, i)
+            except KeyError as e:
+                print(f"KeyError occurred with key: {e}")
+                # Additional debug info
+                if isinstance(target_pic, dict):
+                    print("Available keys in target_pic:", target_pic.keys())
+                raise  # Optionally re-raise the exception to halt further execution and trace it
+
             if pos is not None:
                 if debug_status:
                     if other_setting[5]:
-                        draw_img = ImgProcess.draw_pos_in_img(screen_capture, pos, [screen_high / 10, screen_width / 10])
+                        draw_img = ImgProcess.draw_pos_in_img(screen_capture, pos,
+                                                              [screen_high / 10, screen_width / 10])
                         ImgProcess.show_img(draw_img)
                 return pos, i
         return pos, i
@@ -124,7 +144,7 @@ class GetPosByTemplateMatch:
             res = cv2.matchTemplate(img_src, template, cv2.TM_CCOEFF_NORMED)
             min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)  # 最小匹配度，最大匹配度，最小匹配度的坐标，最大匹配度的坐标
             if debug_status:
-                print(f"<br>第 [ {i+1} ] 张图片，匹配分数：[ {round(max_val,2)} ]")
+                print(f"<br>第 [ {i + 1} ] 张图片，匹配分数：[ {round(max_val, 2)} ]")
             if max_val >= val:  # 计算相对坐标
                 position = [int(screen_width / img_src_width * (max_loc[0] + img_tmp_width / 2)),
                             int(screen_height / img_src_height * (max_loc[1] + img_tmp_height / 2))]
@@ -202,7 +222,7 @@ class GetPosBySiftMatch:
             if m.distance < 0.6 * n.distance:  # m表示大图像上最匹配点的距离，n表示次匹配点的距离，若比值小于0.5则舍弃
                 good.append(m)
         if debug_status:
-            print(f"<br>第 [ {i+1} ] 张图片，匹配角点数量：[ {len(good)} ] ,目标数量：[ {min_match_count} ]")
+            print(f"<br>第 [ {i + 1} ] 张图片，匹配角点数量：[ {len(good)} ] ,目标数量：[ {min_match_count} ]")
         if len(good) > min_match_count:
             src_pts = float32([kp1[m.queryIdx].pt for m in good]).reshape(-1, 1, 2)
             dst_pts = float32([kp2[m.trainIdx].pt for m in good]).reshape(-1, 1, 2)

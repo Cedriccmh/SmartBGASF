@@ -8,10 +8,10 @@ from re import search, compile
 
 import numpy as np
 from numpy import uint8, fromfile
-# from cv2 import cv2
 import cv2
 from modules.ModuleImgProcess import ImgProcess
 from modules.ModuleGetConfig import ReadConfigFile
+import os
 
 
 class GetTargetPicOrTextInfo:
@@ -30,12 +30,14 @@ class GetTargetPicOrTextInfo:
         rc = ReadConfigFile()
         file_name = rc.read_config_target_path_files_name()  # 读取配置文件中的待匹配目标的名字信息
 
-        parent_path = path.abspath(path.dirname(path.dirname(__file__)))  # 父路径
+        # Use os.path.abspath to get the absolute path of the directory two levels up from this script
+        parent_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))  # 父路径
 
         # 通过界面上的选择目标，定位待匹配的目标文件夹
         for i in range(7):
             if self.modname == file_name[i][0]:
-                target_folder_path = parent_path + r"\img\\" + file_name[i][1]
+                # Use os.path.join to concatenate paths to avoid issues with slashes
+                target_folder_path = os.path.join(parent_path, "img", file_name[i][1])
                 return target_folder_path
 
         if self.modname == "自定义":
@@ -53,7 +55,7 @@ class GetTargetPicOrTextInfo:
         folder_path = self.get_target_folder_path()
         img_file_path = []
         cv2_img = {}
-        text_data = {}
+        text_data = []
 
         # 获取每张图片的路径地址
         if folder_path is None:
@@ -66,8 +68,8 @@ class GetTargetPicOrTextInfo:
                     if search(r'\.(jpg|png)$', file):
                         img_file_path.append(full_path)
                     elif search(r'\.txt$', file):
-                        text_data[file] = self.read_text_file(full_path)
-                        print(f"<br>读取到文本文件: {file} <br>文本内容: {text_data[file]}")
+                        text_data = self.read_text_file(full_path)
+                        print(f"<br>读取到文本文件: {file} <br>文本内容: {text_data}")
             if not img_file_path and not text_data:
                 print("未找到目标文件夹或图片地址！")
                 return None

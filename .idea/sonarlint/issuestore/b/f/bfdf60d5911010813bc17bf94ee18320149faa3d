@@ -1,38 +1,36 @@
 
-Ÿpython:S1192´"TDefine a constant instead of duplicating this literal 'å…¼å®¹-ä¸å¯åå°' 4 times.(Éˆ²èıÿÿÿÿ8®â¹¹ğ1J$11a0ec39-0bb2-4481-a969-c301b50bc99b
-»python:S1192?"qDefine a constant instead of duplicating this literal "<br>--------------------------------------------" 5 times.(ÓèÏ†üÿÿÿÿ8®â¹¹ğ1J$6677ce83-dd44-48f0-ae67-7edd0263deb1
-ßpython:S1192†"“Define a constant instead of duplicating this literal "<br>ã€è¿è¡Œå¼‚å¸¸ï¼šæœªé€‰æ‹©å¾…åŒ¹é…ç›®æ ‡ç¨‹åºï¼Œæˆ–ç¨‹åºå¼‚å¸¸ç»ˆæ­¢ï¼ã€‘" 4 times.(í÷±ùÿÿÿÿ8®â¹¹ğ1J$c54455ce-daf8-4052-94c5-df700f3c2a47
-Åpython:S1192Ñ"Define a constant instead of duplicating this literal "<br>----------------------------------------------------------" 3 times.(€†º¦8®â¹¹ğ1J$265e3074-7a56-4c6d-a146-da071c2e44de
-™python:S1192B"TDefine a constant instead of duplicating this literal 'Windowsç¨‹åºçª—ä½“' 8 times.(²…ı8®â¹¹ğ1J$81cc1b2f-66e5-4049-a0a4-5d8dd18600b4
-œpython:S1192²"QDefine a constant instead of duplicating this literal 'æ­£å¸¸-å¯åå°' 4 times.(É‡ı¯ÿÿÿÿÿ8®â¹¹ğ1J$1eebb962-d3e8-4eb9-9fac-863c8fced7b5
-Æpython:S1192€"{Define a constant instead of duplicating this literal "<br>ã€è¿è¡Œå¼‚å¸¸ï¼šè¯·é€‰æ‹©å¾…åŒ¹é…ç›®æ ‡çª—å£ï¼ã€‘" 4 times.(Åòà¬ıÿÿÿÿ8®â¹¹ğ1J$6d117e7f-5fcd-480c-bd62-374fcf629234
-upython:S1066Â"/Merge this if statement with the enclosing one.(ô€şç8®â¹¹ğ1J$44d03924-02fe-4a5c-b15a-f2b91e664882
-upython:S1066Ó"/Merge this if statement with the enclosing one.(ô€şç8¯â¹¹ğ1J$f4920415-5504-4003-a77a-2e66585d4ce1
-upython:S1066ß"/Merge this if statement with the enclosing one.(ô€şç8¯â¹¹ğ1J$e957457a-e5d9-48dc-9c13-738e071b716d
-upython:S1066î"/Merge this if statement with the enclosing one.(ô€şç8˜ŠºŞğ1J$01f3de9d-2bcd-4e8e-92c5-3625c0132241
-ƒpython:S1481<"9Replace the unused local variable "target_text" with "_".(ôÃÏŒıÿÿÿÿ8ßı­İğ1J$9eee52a2-b531-4e42-b21a-50d002404c11
-‡python:S1481<"=Replace the unused local variable "target_img_sift" with "_".(ôÃÏŒıÿÿÿÿ8¯â¹¹ğ1J$a4992791-d8d5-4be8-b993-4527c6492c68
-…python:S1481<";Replace the unused local variable "target_img_hw" with "_".(ôÃÏŒıÿÿÿÿ8¯â¹¹ğ1J$2f2d8375-5e8e-4482-830c-bde067c242ee
-Œpython:S1481<"BReplace the unused local variable "target_img_file_path" with "_".(ôÃÏŒıÿÿÿÿ8¯â¹¹ğ1J$0c3df04d-8fb7-4c56-828e-e3b32b52a66b
-python:S3776."TRefactor this function to reduce its Cognitive Complexity from 47 to the 15 allowed.(ÏÛù¿øÿÿÿÿ8¯â¹¹ğ1J$448006eb-993a-4b38-88c4-f4fa005e784a
-Špython:S3457n"EAdd replacement fields or use a normal string instead of an f-string.(¾Ğ¹§8¯â¹¹ğ1J$9129f426-716b-4132-8aa9-cdbc6fa7ec28
-Špython:S3457p"EAdd replacement fields or use a normal string instead of an f-string.(«‚•˜8¯â¹¹ğ1J$775873b1-e0bb-45b5-9f06-992255efb98a
-‰python:S3457r"EAdd replacement fields or use a normal string instead of an f-string.(Ş‡š8¯â¹¹ğ1J$391842ea-8212-4500-bae7-4d553428344a
-Špython:S3457t"EAdd replacement fields or use a normal string instead of an f-string.(Ä‹Şİ8¯â¹¹ğ1J$64287556-05e2-47c9-8170-7fae6fb820ca
-”python:S107•"PMethod "match_click" has 14 parameters, which is greater than the 13 authorized.(–‚Ù8¯â¹¹ğ1J$2d54a170-afe0-46a6-b6cf-f3a20b1c3f5c
-{python:S1481Ê"0Remove the unused local variable "click_status".(ìü­¶ûÿÿÿÿ8¯â¹¹ğ1J$69cd0d0e-8a8e-40bb-ae35-52d03f1ce082
-špython:S3776•"URefactor this function to reduce its Cognitive Complexity from 167 to the 15 allowed.(–‚Ù8°â¹¹ğ1J$28ecfee9-e755-4422-81bf-a354a5219cb9
-‹python:S3457ú"EAdd replacement fields or use a normal string instead of an f-string.(Š™ˆı8°â¹¹ğ1J$bd7bc0d0-c67f-422d-a090-1972178ddc19
-python:S3457"EAdd replacement fields or use a normal string instead of an f-string.(ïôµûÿÿÿÿ8°â¹¹ğ1J$e692cd0a-1b8c-480f-b86d-fb5697352029
-‹python:S3457"EAdd replacement fields or use a normal string instead of an f-string.(›ñô8°â¹¹ğ1J$9c255a8f-0eab-4035-8eb3-a3ac133f71be
-python:S3457¹"EAdd replacement fields or use a normal string instead of an f-string.(˜ıÔıÿÿÿÿ8°â¹¹ğ1J$c4b7f89a-c9ac-45ce-ae1d-9c1753bccad2
-python:S3457¿"EAdd replacement fields or use a normal string instead of an f-string.(‰É‰ïøÿÿÿÿ8°â¹¹ğ1J$0bee9e7d-9261-459b-b09e-997aae388f16
-‹python:S3457Ã"EAdd replacement fields or use a normal string instead of an f-string.(Â¨×‹8°â¹¹ğ1J$7aa17fe9-47a5-4fc1-bd0c-db4efe7d10df
-‹python:S3457Ê"EAdd replacement fields or use a normal string instead of an f-string.(è–Ù8°â¹¹ğ1J$aa20014b-5b53-49af-8aad-1b40bdf586e9
-python:S3457Ğ"EAdd replacement fields or use a normal string instead of an f-string.(Ìçõ›şÿÿÿÿ8°â¹¹ğ1J$b0911adc-3e4b-4413-ad78-e27042f51615
-‹python:S3457Ô"EAdd replacement fields or use a normal string instead of an f-string.(›åçø8°â¹¹ğ1J$c2308dac-9f13-42a1-8219-4dcdc9363972
-python:S3457à"EAdd replacement fields or use a normal string instead of an f-string.(ÄØ‡úûÿÿÿÿ8°â¹¹ğ1J$bf37fb46-d79d-4673-892e-b82af863af0e
-‹python:S3457ä"EAdd replacement fields or use a normal string instead of an f-string.(„üÄ8°â¹¹ğ1J$0574d847-7754-4bca-a675-fdb39cc68487
-‹python:S3457ì"EAdd replacement fields or use a normal string instead of an f-string.(Ş”Ÿ˜8°â¹¹ğ1J$d95e7c08-0077-4c0c-934e-604801a6b949
-‹python:S3457õ"EAdd replacement fields or use a normal string instead of an f-string.(Æê…ä8°â¹¹ğ1J$28016b0b-3290-4832-a9c4-4577c19e83ac
-™python:S3776ù"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(ËÆ[8°â¹¹ğ1J$9320aec4-d200-4456-81e0-17d1537f76e8
+Ÿpython:S1192Å"TDefine a constant instead of duplicating this literal 'å…¼å®¹-ä¸å¯åå°' 4 times.(Éˆ²èıÿÿÿÿ8öÖ·­ò1J$3076f9c3-5425-4b0e-a99b-68da01d37ffd
+»python:S1192P"qDefine a constant instead of duplicating this literal "<br>--------------------------------------------" 5 times.(ÓèÏ†üÿÿÿÿ8÷Ö·­ò1J$a3f69917-5bcc-487c-9978-87b9371cb5cf
+ßpython:S1192—"“Define a constant instead of duplicating this literal "<br>ã€è¿è¡Œå¼‚å¸¸ï¼šæœªé€‰æ‹©å¾…åŒ¹é…ç›®æ ‡ç¨‹åºï¼Œæˆ–ç¨‹åºå¼‚å¸¸ç»ˆæ­¢ï¼ã€‘" 4 times.(í÷±ùÿÿÿÿ8÷Ö·­ò1J$0a44ebee-fca8-4b4c-97ba-546c7f647d74
+Åpython:S1192á"Define a constant instead of duplicating this literal "<br>----------------------------------------------------------" 3 times.(€†º¦8÷Ö·­ò1J$22078bba-c560-45e0-860c-b09fd0ac1a5a
+™python:S1192S"TDefine a constant instead of duplicating this literal 'Windowsç¨‹åºçª—ä½“' 8 times.(²…ı8÷Ö·­ò1J$4ab4d7be-73b6-4b07-b6b8-21526133dc3a
+œpython:S1192Ã"QDefine a constant instead of duplicating this literal 'æ­£å¸¸-å¯åå°' 4 times.(É‡ı¯ÿÿÿÿÿ8÷Ö·­ò1J$6a4fbe41-6cde-461e-b572-bc7d0387d6a3
+Æpython:S1192‘"{Define a constant instead of duplicating this literal "<br>ã€è¿è¡Œå¼‚å¸¸ï¼šè¯·é€‰æ‹©å¾…åŒ¹é…ç›®æ ‡çª—å£ï¼ã€‘" 4 times.(Åòà¬ıÿÿÿÿ8÷Ö·­ò1J$0fe8d71b-b93a-4296-91ec-efdb0cc9982a
+upython:S1066Ó"/Merge this if statement with the enclosing one.(ô€şç8÷Ö·­ò1J$fc186361-23ea-4bba-9b13-94384cc63b3d
+upython:S1066ä"/Merge this if statement with the enclosing one.(ô€şç8÷Ö·­ò1J$656cb7fc-b44c-4cc4-af8c-1b3977a5624b
+…python:S1481M";Replace the unused local variable "target_img_hw" with "_".(ôÃÏŒıÿÿÿÿ8øÖ·­ò1J$3b19a873-6f81-4790-aef3-6b753fe0255b
+‡python:S1481M"=Replace the unused local variable "target_img_sift" with "_".(ôÃÏŒıÿÿÿÿ8øÖ·­ò1J$68704b0f-7977-44d5-b871-28197b140620
+ƒpython:S1481M"9Replace the unused local variable "target_text" with "_".(ôÃÏŒıÿÿÿÿ8øÖ·­ò1J$65289028-d794-4764-8d69-d3c54c97220d
+Œpython:S1481M"BReplace the unused local variable "target_img_file_path" with "_".(ôÃÏŒıÿÿÿÿ8øÖ·­ò1J$c4ef677f-4d08-43f4-88e1-c62e3bfc2a19
+python:S3776?"TRefactor this function to reduce its Cognitive Complexity from 47 to the 15 allowed.(ÏÛù¿øÿÿÿÿ8ùÖ·­ò1J$3d457710-c8a5-4096-be39-e5a1f0852caa
+Špython:S3457"EAdd replacement fields or use a normal string instead of an f-string.(¾Ğ¹§8ùÖ·­ò1J$6220c27c-eb7a-4453-abc6-b6c301151669
+‹python:S3457"EAdd replacement fields or use a normal string instead of an f-string.(«‚•˜8ùÖ·­ò1J$9ce8e28d-78fd-479f-a3b5-5c79b2b27c3b
+Špython:S3457ƒ"EAdd replacement fields or use a normal string instead of an f-string.(Ş‡š8ùÖ·­ò1J$8becdd90-80ff-4434-8b7e-442c8341c693
+‹python:S3457…"EAdd replacement fields or use a normal string instead of an f-string.(Ä‹Şİ8ùÖ·­ò1J$7387b317-ac71-4980-9c67-58f558ca708b
+”python:S107¦"PMethod "match_click" has 14 parameters, which is greater than the 13 authorized.(–‚Ù8ùÖ·­ò1J$dbab60f9-98d9-47a3-a6d0-01c0d998ce53
+{python:S1481Û"0Remove the unused local variable "click_status".(ìü­¶ûÿÿÿÿ8úÖ·­ò1J$753d3986-dcdf-4e59-80b9-cedd142c3b36
+špython:S3776¦"URefactor this function to reduce its Cognitive Complexity from 176 to the 15 allowed.(–‚Ù8úÖ·­ò1J$ba67ce25-164b-48bf-b665-92f95d6f13e8
+‹python:S3457Š"EAdd replacement fields or use a normal string instead of an f-string.(Š™ˆı8úÖ·­ò1J$ddc72402-61b6-4b3e-9c2e-06a859153e8b
+python:S3457‘"EAdd replacement fields or use a normal string instead of an f-string.(ïôµûÿÿÿÿ8úÖ·­ò1J$4dd9de9e-d83f-40cc-9c66-8586a29ed02f
+‹python:S3457­"EAdd replacement fields or use a normal string instead of an f-string.(›ñô8úÖ·­ò1J$9b937209-fd16-41c8-8832-608b760d4f43
+python:S3457É"EAdd replacement fields or use a normal string instead of an f-string.(˜ıÔıÿÿÿÿ8úÖ·­ò1J$46041417-c5e6-4f57-8db7-ecef32aaffce
+python:S3457Ï"EAdd replacement fields or use a normal string instead of an f-string.(‰É‰ïøÿÿÿÿ8úÖ·­ò1J$047953cc-6f25-4f4c-b1f4-f9099a418b2f
+‹python:S3457Ó"EAdd replacement fields or use a normal string instead of an f-string.(Â¨×‹8úÖ·­ò1J$b8accd4d-34a7-4f68-814f-1ad78922adbf
+‹python:S3457Ú"EAdd replacement fields or use a normal string instead of an f-string.(è–Ù8úÖ·­ò1J$9ec2ff15-efb3-4443-9b0c-94f0dbc123b7
+python:S3457à"EAdd replacement fields or use a normal string instead of an f-string.(Ìçõ›şÿÿÿÿ8úÖ·­ò1J$ca5f20da-54de-4972-b145-15d19232783f
+‹python:S3457ä"EAdd replacement fields or use a normal string instead of an f-string.(›åçø8úÖ·­ò1J$7e7be70a-36d8-43e0-b540-24f4bd7b33ee
+python:S3457ğ"EAdd replacement fields or use a normal string instead of an f-string.(ÄØ‡úûÿÿÿÿ8úÖ·­ò1J$3011bec1-637f-4e67-a089-e05ced58600e
+‹python:S3457ô"EAdd replacement fields or use a normal string instead of an f-string.(„üÄ8úÖ·­ò1J$5aa02ca3-0366-410d-be4d-009f78abdf60
+‹python:S3457ü"EAdd replacement fields or use a normal string instead of an f-string.(Ş”Ÿ˜8úÖ·­ò1J$7caba379-c904-465b-b9a7-faa1b88a6fe6
+‹python:S3457…"EAdd replacement fields or use a normal string instead of an f-string.(Æê…ä8úÖ·­ò1J$92e460bb-1fef-4c44-bda1-1acc2877ef72
+™python:S3776‰"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(ËÆ[8úÖ·­ò1J$c091ec09-1014-4817-a99a-c6d2b04a842e
